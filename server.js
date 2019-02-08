@@ -6,7 +6,7 @@ const next = require('next')
 
 const app = next({dev: process.env.NODE_ENV !== 'production'})
 const handle = app.getRequestHandler()
-const port = Number.parseInt(process.argv.pop().split('=')[1] || 9000)
+const port = Number.parseInt(process.env.PORT || 9000)
 const root = process.cwd()
 
 app.prepare().then(() => {
