@@ -1,0 +1,12 @@
+apiVersion: serving.knative.dev/v1alpha1
+kind: Service
+metadata:
+  name: nodejs-demo
+  namespace: default
+spec:
+  runLatest:
+    configuration:
+      revisionTemplate:
+        spec:
+          container:
+            image: eu.gcr.io/stijn-koopal-speeltuin/nodejs-demo
