@@ -10,3 +10,6 @@ spec:
         spec:
           container:
             image: eu.gcr.io/stijn-koopal-speeltuin/nodejs-demo
+        metadata:
+          annotations:
+            autoscaling.knative.dev/minScale: "1"
