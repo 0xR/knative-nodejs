@@ -1,0 +1,16 @@
+apiVersion: build.knative.dev/v1alpha1
+kind: Build
+metadata:
+  name: nodejs-demo
+spec:
+  serviceAccountName: default
+  source:
+    git:
+      url: https://github.com/0xR/knative-nodejs.git
+      revision: master
+  steps:
+    - name: build-and-push
+      image: gcr.io/kaniko-project/executor:v0.8.0
+      args:  #See kaniko docs for more info about the arguments passed
+        - --dockerfile=Dockerfile
+        - --destination=eu.gcr.io/stijn-koopal-speeltuin/nodejs-demo
